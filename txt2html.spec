@@ -6,6 +6,7 @@ Release:	4
 License:	BSD-like
 Group:		Applications/Text
 Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
+# Source0-md5:	7604cfb7456851bbaffbc48ab4444349
 URL:		http://www.aigeek.com/txt2html/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
