@@ -3,10 +3,11 @@ Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
 Version:	1.28
 Release:	2
-Copyright:	Modified BSD
-Group:		Utilities/Text
+License:	Modified BSD
+Group:		Applications/Text
+Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
-Group(pl):	Narzêdzia/Tekst
+Group(pl):	Aplikacje/Tekst
 Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.aigeek.com/txt2html/
 Requires:	perl
