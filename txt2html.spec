@@ -1,12 +1,12 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
-Version:	1.25
-Release:	4
+Version:	1.27
+Release:	1
 Copyright:	Modified BSD
 Group:		Utilities/Text
-Source:		http://www.thehouse.org/txt2html/%{name}-%{version}.tar.gz
-URL:		http://www.thehouse.org/txt2html/
+Source:		http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
+URL:		http://www.aigeek.com/txt2html/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
 
@@ -33,6 +33,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/misc}
     echo '#!%{_bindir}/perl'
     sed  -e's#/usr/local/lib#%{_datadir}/misc#' txt2html.pl
 } >$RPM_BUILD_ROOT%{_bindir}/txt2html
+
 install txt2html.dict $RPM_BUILD_ROOT%{_datadir}/misc/txt2html-linkdict
 
 gzip -9nf changes.html sample.txt sample.html LICENSE README
