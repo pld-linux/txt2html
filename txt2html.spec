@@ -8,7 +8,7 @@ Group:       Utilities/Text
 Source:      http://www.thehouse.org/txt2html/%{name}-%{version}.tar.gz
 URL:         http://www.thehouse.org/txt2html/
 Requires:    perl
-BuildRoot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 BuildArchitectures: noarch
 
 %description
