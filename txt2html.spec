@@ -31,9 +31,9 @@ lepsze sposoby.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/{bin,lib}
 {
-    echo '#!/usr/bin/perl'
+    echo '#!%{_bindir}/perl'
     sed -e'1,10d' -e's%/usr/local/lib%%{_libdir}%' txt2html.pl
-} >$RPM_BUILD_ROOT/usr/bin/txt2html
+} >$RPM_BUILD_ROOT%{_bindir}/txt2html
 install txt2html.dict $RPM_BUILD_ROOT%{_libdir}/txt2html-linkdict
 
 %clean
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 %doc changes.html sample.txt sample.html LICENSE README
 %config %{_libdir}/txt2html-linkdict
-%attr(755, root, root) /usr/bin/txt2html
+%attr(755, root, root) %{_bindir}/txt2html
 
 %changelog
 * Fri Sep 25 1998 Marcin 'Qrczak' Kowalczyk <qrczak@knm.org.pl>
