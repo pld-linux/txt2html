@@ -5,9 +5,6 @@ Version:	1.28
 Release:	2
 License:	Modified BSD
 Group:		Applications/Text
-Group(de):	Applikationen/Text
-Group(fr):	Utilitaires/Texte
-Group(pl):	Aplikacje/Tekst
 Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.aigeek.com/txt2html/
 Requires:	perl
