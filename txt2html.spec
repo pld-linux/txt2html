@@ -6,16 +6,14 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
-Version:	2.25
-Release:	1
+Version:	2.33
+Release:	0.1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	c69d3e3c85c9fbbd5d265d0a9c89ac18
+# Source0-md5:	59dde458fdd62532bce7f9c19ba7a251
 URL:		http://www.sourceforge.net/projects/txt2html/
-#BuildRequires:	perl-ExtUtils-configPL
-BuildRequires:	perl-ExtUtils-MakeMaker
 Requires:	perl-Getopt-ArgvFile
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,20 +33,18 @@ pewnie istniej± lepsze sposoby.
 %setup -q
 
 %build
-#sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl > \
-#	txt2html
-%{__perl} -MExtUtils::MakeMaker -e 'WriteMakefile(NAME=>"HTML::TextToHTML", EXE_FILES=>["txt2html"])' \
-	INSTALLDIRS=vendor
-%{__make}
+%{__perl} Build.PL \
+	installdirs=vendor
 
-%{?with_tests:%{__make} test}
+./Build
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/misc
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install \
+	destdir=$RPM_BUILD_ROOT
 
 install txt2html.dict $RPM_BUILD_ROOT%{_datadir}/misc/txt2html-linkdict
 
