@@ -32,9 +32,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/{bin,lib}
 {
     echo '#!/usr/bin/perl'
-    sed -e'1,10d' -e's%/usr/local/lib%/usr/lib%' txt2html.pl
+    sed -e'1,10d' -e's%/usr/local/lib%%{_libdir}%' txt2html.pl
 } >$RPM_BUILD_ROOT/usr/bin/txt2html
-install txt2html.dict $RPM_BUILD_ROOT/usr/lib/txt2html-linkdict
+install txt2html.dict $RPM_BUILD_ROOT%{_libdir}/txt2html-linkdict
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644, root, root, 755)
 %doc changes.html sample.txt sample.html LICENSE README
-%config /usr/lib/txt2html-linkdict
+%config %{_libdir}/txt2html-linkdict
 %attr(755, root, root) /usr/bin/txt2html
 
 %changelog
