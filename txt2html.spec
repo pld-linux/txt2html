@@ -2,15 +2,16 @@ Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
 Version:	1.28
-Release:	1
+Release:	2
 Copyright:	Modified BSD
 Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
 Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.aigeek.com/txt2html/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Require:	perl
 BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 My intent in writing this tool is to provide an easier way of
@@ -24,14 +25,14 @@ mo¿e te¿ byæ u¿yty do pisania nowych dokumentów HTML, chocia¿ na to
 pewnie istniej± lepsze sposoby.
 
 %prep
-%setup -n txt2html -q
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/misc}
-{ echo '#!%{_bindir}/perl'
-  sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl
-} >$RPM_BUILD_ROOT%{_bindir}/txt2html
+
+sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl > \
+	$RPM_BUILD_ROOT%{_bindir}/txt2html
 
 install txt2html.dict $RPM_BUILD_ROOT%{_datadir}/misc/txt2html-linkdict
 
