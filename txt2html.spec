@@ -1,14 +1,15 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
-Version:	2.21
+Version:	2.23
 Release:	1
 License:	BSD-like
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	a21cd75956f7cb7491b1d9502d0fbf18
+# Source0-md5:	dbcd7a64ec87ad5753755a0321d777d6
 URL:		http://www.sourceforge.net/projects/txt2html/
 #BuildRequires:	perl-ExtUtils-configPL
+Requires:	perl-Getopt-Argv
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,13 +33,15 @@ pewnie istniej± lepsze sposoby.
 perl Makefile.PL
 %{__make}
 %{__make} test
-#%{__make} install
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/misc}
+install -d $RPM_BUILD_ROOT%{_datadir}/misc
 
-install txt2html $RPM_BUILD_ROOT%{_bindir}
+%{__make} install_perl \
+	DESTDIR=$RPM_BUILD_ROOT \
+	PREFIX=$RPM_BUILD_ROOT
+
 install txt2html.dict $RPM_BUILD_ROOT%{_datadir}/misc/txt2html-linkdict
 
 %clean
@@ -46,6 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE README Changes DEVNOTES README TODO
+%doc LICENSE README Changes DEVNOTES TODO
 %config %{_datadir}/misc/txt2html-linkdict
 %attr(755,root,root) %{_bindir}/txt2html
+%{_mandir}/man*/*
+%{perl_privlib}/HTML/*.pm
