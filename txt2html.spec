@@ -7,7 +7,8 @@ Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
 Version:	2.25
 Release:	1
-License:	BSD-like
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
 # Source0-md5:	c69d3e3c85c9fbbd5d265d0a9c89ac18
