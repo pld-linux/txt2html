@@ -36,6 +36,9 @@ install -d $RPM_BUILD_ROOT/usr/{bin,lib}
 } >$RPM_BUILD_ROOT/usr/bin/txt2html
 install txt2html.dict $RPM_BUILD_ROOT/usr/lib/txt2html-linkdict
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644, root, root, 755)
 %doc changes.html sample.txt sample.html LICENSE README
