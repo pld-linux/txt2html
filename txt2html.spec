@@ -13,7 +13,7 @@ License:	GPL v1+ or Artistic
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
 # Source0-md5:	bb306197a139248f79f06065728e6983
-URL:		http://www.sourceforge.net/projects/txt2html/
+URL:		http://txt2html.sourceforge.net/
 BuildRequires:	perl-Module-Build >= 0.26
 Requires:	perl-Getopt-ArgvFile
 BuildArch:	noarch
