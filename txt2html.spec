@@ -1,12 +1,12 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
-Version:	2.20
+Version:	2.21
 Release:	1
 License:	BSD-like
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	f5bf2aca5de7249019a43fd37a0bd60e
+# Source0-md5:	a21cd75956f7cb7491b1d9502d0fbf18
 URL:		http://www.sourceforge.net/projects/txt2html/
 #BuildRequires:	perl-ExtUtils-configPL
 BuildArch:	noarch
