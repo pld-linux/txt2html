@@ -40,10 +40,10 @@ install txt2html.dict $RPM_BUILD_ROOT%{_libdir}/txt2html-linkdict
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc changes.html sample.txt sample.html LICENSE README
 %config %{_libdir}/txt2html-linkdict
-%attr(755, root, root) %{_bindir}/txt2html
+%attr(755,root,root) %{_bindir}/txt2html
 
 %changelog
 * Fri Sep 25 1998 Marcin 'Qrczak' Kowalczyk <qrczak@knm.org.pl>
