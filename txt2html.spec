@@ -45,17 +45,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %config %{_datadir}/misc/txt2html-linkdict
 %attr(755,root,root) %{_bindir}/txt2html
-
-%changelog
-* Mon Jul  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.25-4]
-- more rpm macros,
-- txt2html-linkdict moved to %%{_datadir}/misc/ (FHS 2.0),
-- gzipping %doc.
-
-* Fri Sep 25 1998 Marcin 'Qrczak' Kowalczyk <qrczak@knm.org.pl>
-  [1.25-3]
-- added pl translation,
-- added %setup -q parameter,
-- replaced `mkdir -p' with more standard `install -d',
-- minor clean-ups in the install script.
