@@ -1,8 +1,12 @@
+#
+# Conditional build:
+%bcond_without	tests	# perform "make test"
+#
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
 Version:	2.23
-Release:	2
+Release:	3
 License:	BSD-like
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
@@ -30,17 +34,18 @@ pewnie istniej± lepsze sposoby.
 %build
 #sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl > \
 #	txt2html
-perl Makefile.PL
+%{__perl} -MExtUtils::MakeMaker -e 'WriteMakefile(NAME=>"HTML::TextToHTML", EXE_FILES=>["txt2html"])' \
+	INSTALLDIRS=vendor
 %{__make}
-%{__make} test
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/misc
 
-%{__make} install_perl \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install txt2html.dict $RPM_BUILD_ROOT%{_datadir}/misc/txt2html-linkdict
 
@@ -53,4 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 %config %{_datadir}/misc/txt2html-linkdict
 %attr(755,root,root) %{_bindir}/txt2html
 %{_mandir}/man*/*
-%{perl_privlib}/HTML/*.pm
+%{perl_vendorlib}/HTML/*.pm
