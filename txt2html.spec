@@ -7,7 +7,7 @@ Copyright:	Modified BSD
 Group:		Utilities/Text
 Source:		http://www.thehouse.org/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.thehouse.org/txt2html/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
 
 %description
