@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_without	tests	# perform "make test"
 #
+%include        /usr/lib/rpm/macros.perl
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
