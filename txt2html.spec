@@ -1,13 +1,14 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
 Name:		txt2html
-Version:	1.28
-Release:	4
+Version:	2.01
+Release:	1
 License:	BSD-like
 Group:		Applications/Text
-Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	7604cfb7456851bbaffbc48ab4444349
-URL:		http://www.aigeek.com/txt2html/
+# Source0-md5:	772001d8d5e0094a8b1ad9a48174f7ea
+Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
+URL:		http://www.sourceforge.net/projects/txt2html/
+BuildRequires:	perl-ExtUtils-configPL
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,8 +27,12 @@ pewnie istniej± lepsze sposoby.
 %setup -q
 
 %build
-sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl > \
-	txt2html
+#sed -e's#%{_prefix}/local/lib#%{_datadir}/misc#' txt2html.pl > \
+#	txt2html
+perl Makefile.PL
+%{__make}
+%{__make} test
+#%{__make} install
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -41,6 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc changes.html sample.txt sample.html LICENSE README
+%doc sample.txt LICENSE README
 %config %{_datadir}/misc/txt2html-linkdict
 %attr(755,root,root) %{_bindir}/txt2html
