@@ -9,7 +9,7 @@ Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
 Source0:	http://www.aigeek.com/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.aigeek.com/txt2html/
-Require:	perl
+Requires:	perl
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
