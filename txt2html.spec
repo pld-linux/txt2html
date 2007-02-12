@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	Convert raw text to something with a little HTML formatting
-Summary(pl.UTF-8):   Konwersja czystego tekstu na HTML, rozpoznając trochę sformatowania
+Summary(pl.UTF-8):	Konwersja czystego tekstu na HTML, rozpoznając trochę sformatowania
 Name:		txt2html
 Version:	2.44
 Release:	1
