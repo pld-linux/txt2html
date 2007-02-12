@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	Convert raw text to something with a little HTML formatting
-Summary(pl):	Konwersja czystego tekstu na HTML, rozpoznaj±c trochê sformatowania
+Summary(pl.UTF-8):   Konwersja czystego tekstu na HTML, rozpoznajÄ…c trochÄ™ sformatowania
 Name:		txt2html
 Version:	2.44
 Release:	1
@@ -25,10 +25,10 @@ converting existing text documents to HTML format. txt2html can also
 be used to aid in writing new HTML documents, but there are probably
 better ways of doing that.
 
-%description -l pl
-Narzêdzie u³atwia konwersjê dokumentów tekstowych na HTML. txt2html
-mo¿e te¿ byæ u¿yty do pisania nowych dokumentów HTML, chocia¿ na to
-pewnie istniej± lepsze sposoby.
+%description -l pl.UTF-8
+NarzÄ™dzie uÅ‚atwia konwersjÄ™ dokumentÃ³w tekstowych na HTML. txt2html
+moÅ¼e teÅ¼ byÄ‡ uÅ¼yty do pisania nowych dokumentÃ³w HTML, chociaÅ¼ na to
+pewnie istniejÄ… lepsze sposoby.
 
 %prep
 %setup -q
