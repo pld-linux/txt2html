@@ -6,13 +6,13 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl.UTF-8):	Konwersja czystego tekstu na HTML, rozpoznając trochę sformatowania
 Name:		txt2html
-Version:	2.44
+Version:	2.50
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	6fce6874310b8ae09d03a37baea1517c
+# Source0-md5:	533b2c4990c42b963f5e4fbcfac7abd1
 URL:		http://txt2html.sourceforge.net/
 BuildRequires:	perl-Module-Build >= 0.26
 Requires:	perl-Getopt-ArgvFile
