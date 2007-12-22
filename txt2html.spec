@@ -16,9 +16,9 @@ Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
 URL:		http://www.sourceforge.net/projects/txt2html/
 BuildRequires:	perl-Module-Build >= 0.26
 %if %{with tests}
-BuildRequires:  perl-Getopt-ArgvFile
+BuildRequires:	perl-Getopt-ArgvFile
 BuildRequires:	perl-Test-Distribution
-BuildRequires:  perl-YAML-Syck
+BuildRequires:	perl-YAML-Syck
 %endif
 Requires:	perl-Getopt-ArgvFile
 BuildArch:	noarch
