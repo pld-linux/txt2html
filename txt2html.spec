@@ -15,6 +15,10 @@ Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
 # Source0-md5:	533b2c4990c42b963f5e4fbcfac7abd1
 URL:		http://txt2html.sourceforge.net/
 BuildRequires:	perl-Module-Build >= 0.26
+%if %{with tests}
+BuildRequires:	perl-Getopt-ArgvFile
+BuildRequires:	perl-YAML-Syck
+%endif
 Requires:	perl-Getopt-ArgvFile
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
