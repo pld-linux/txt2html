@@ -17,6 +17,7 @@ URL:		http://txt2html.sourceforge.net/
 BuildRequires:	perl-Module-Build >= 0.26
 %if %{with tests}
 BuildRequires:	perl-Getopt-ArgvFile
+BuildRequires:	perl-Test-Distribution
 BuildRequires:	perl-YAML-Syck
 %endif
 Requires:	perl-Getopt-ArgvFile
