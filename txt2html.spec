@@ -5,18 +5,17 @@
 Summary:	Convert raw text to something with a little HTML formatting
 Summary(pl.UTF-8):	Konwersja czystego tekstu na HTML, rozpoznając trochę sformatowania
 Name:		txt2html
-Version:	2.51
+Version:	2.5201
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Applications/Text
-Source0:	http://dl.sourceforge.net/txt2html/%{name}-%{version}.tar.gz
-# Source0-md5:	e870c5443893b84894aa44980a35b2ea
-URL:		http://txt2html.sourceforge.net/
-BuildRequires:	perl-Module-Build >= 0.26
+Source0:	https://www.cpan.org/modules/by-module/HTML/%{name}-%{version}.tar.gz
+# Source0-md5:	44029f55c30a551f343b9424a98a3691
+URL:		https://txt2html.sourceforge.net/
+BuildRequires:	perl-Module-Build >= 0.3601
+BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-Getopt-ArgvFile
-BuildRequires:	perl-Test-Distribution
 BuildRequires:	perl-YAML-Syck
 %endif
 Requires:	perl-Getopt-ArgvFile
@@ -36,6 +35,7 @@ pewnie istnieją lepsze sposoby.
 
 %prep
 %setup -q
+%{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' scripts/txt2html
 
 %build
 %{__perl} Build.PL \
@@ -49,6 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 
 ./Build install \
 	destdir=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/%{name}/.packlist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
